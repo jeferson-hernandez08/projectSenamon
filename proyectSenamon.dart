@@ -22,6 +22,16 @@ class Jugador {
     }
   }
 
+  void mostrarInformacion() {
+    print("""
+            El jugador se llama: ${this.nombre}
+            Su email es: ${this.email}
+            Su fecha de nacimeinto es: ${this.fechaNacimiento}
+            Nivel de expericiena: ${this.nivelExperiencia} 
+            Batallas ganadas: ${this.batallasGanadas} 
+         """);
+  }
+
 }
 
 //Punto 4.   //nombre, nivel, tipo de Senamon: nombre, nivel, tipo de Senamon(fuego, agua, hierva, volador y eléctrico), peso, puntos de salud, nivel de ataque,fase, nivel de energía y una descripción breve del Senamon
@@ -66,6 +76,14 @@ void main() {
   List<String> moneda = ["cara", "sello"];
   monedaAleatoria(moneda);
 
+  //******Pokemones objetos******* 
+  //Jugador 1: Jeferson.
+  Jugador jugador1 = Jugador("Jeferson Hernandez", "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
+  jugador1.mostrarInformacion();
+
+  //Jugador 2: Andres.
+  Jugador jugador2 = Jugador("Andres Sanchez", "andres.sanchez@gmail.com", "12-enero-1988", 200, 1);
+  jugador2.mostrarInformacion();
 
   //******Pokemones objetos******* 
   //Pokemon 1: Pikachu
