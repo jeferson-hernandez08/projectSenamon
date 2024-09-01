@@ -13,6 +13,7 @@ class Jugador {
    // Constructor: Funcion que se ejecuta cuando se crea un objeto
   Jugador(this.nombre, this.email, this.fechaNacimiento, this.nivelExperiencia, this.batallasGanadas);
 
+  //Punto 3. Mejorar pokemon
   void entrenarPokemon() {
     if ( nivelExperiencia >= 200 ) {
       print("Has incrementado 20 puntos al pokemon");
@@ -64,6 +65,7 @@ class Pokemon {
   }
 }
 
+//Punto 7. Moneda aleatoria
 void monedaAleatoria(List<String> moneda) {
   var random = Random();
   // Barajar las listas para asegurarse de que estén en orden aleatorio
@@ -76,7 +78,7 @@ void main() {
   List<String> moneda = ["cara", "sello"];
   monedaAleatoria(moneda);
 
-  //******Pokemones objetos******* 
+  //******Jugadores objetos******* 
   //Jugador 1: Jeferson.
   Jugador jugador1 = Jugador("Jeferson Hernandez", "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
   jugador1.mostrarInformacion();
