@@ -1,69 +1,8 @@
 import 'dart:math';
-
-class Jugador {
-  
-  //Punto 1 y 2
-  //Atributos de jugador 
-  String nombre;
-  String email;
-  String fechaNacimiento;
-  double nivelExperiencia;
-  int batallasGanadas;
-
-   // Constructor: Funcion que se ejecuta cuando se crea un objeto
-  Jugador(this.nombre, this.email, this.fechaNacimiento, this.nivelExperiencia, this.batallasGanadas);
-
-  //Punto 3. Mejorar pokemon
-  void entrenarPokemon() {
-    if ( nivelExperiencia >= 200 ) {
-      print("Has incrementado 20 puntos al pokemon");
-    }
-    else {
-      print("No tiene suficiente experecia para mejorar pokemon");
-    }
-  }
-
-  void mostrarInformacion() {
-    print("""
-            El jugador se llama: ${this.nombre}
-            Su email es: ${this.email}
-            Su fecha de nacimeinto es: ${this.fechaNacimiento}
-            Nivel de expericiena: ${this.nivelExperiencia} 
-            Batallas ganadas: ${this.batallasGanadas} 
-         """);
-  }
-
-}
-
-//Punto 4.   //nombre, nivel, tipo de Senamon: nombre, nivel, tipo de Senamon(fuego, agua, hierva, volador y eléctrico), peso, puntos de salud, nivel de ataque,fase, nivel de energía y una descripción breve del Senamon
-class Pokemon {
-  String nombre;
-  String nivel;
-  String tipoSenamon;
-  double peso;
-  double puntosSalud;
-  double nivelAtaque;
-  int fase;
-  double nivelEnergia;
-  String descripcion;
-
-  // Constructor: Funcion que se ejecuta cuando se crea un objeto
-  Pokemon(this.nombre, this.nivel, this.tipoSenamon, this.peso, this.puntosSalud, this.nivelAtaque, this.fase, this.nivelEnergia, this.descripcion);
-
-  void mostrarInformacion() {
-    print("""
-            El pokemon se llama: ${this.nombre}
-            Nivel: ${this.nivel}
-            tipo pokemon: ${this.tipoSenamon}
-            peso: ${this.peso} 
-            puntos salud: ${this.puntosSalud} 
-            Nivel ataque: ${this.nivelAtaque}
-            Fase: ${this.fase}
-            Nivel de energia: ${nivelEnergia}
-            Descripcion: ${this.descripcion} 
-         """);
-  }
-}
+import 'dart:io';
+import 'entrenador.dart';
+import 'senamon.dart';
+import 'batalla.dart';
 
 //Punto 7. Moneda aleatoria
 void monedaAleatoria(List<String> moneda) {
@@ -74,31 +13,125 @@ void monedaAleatoria(List<String> moneda) {
   
 }
 
+Entrenador crearEntrenador() {
+  print('Ingrese el nombre del entrenador: ');
+  String? nombre = stdin.readLineSync();
+  return Entrenador(nombre ?? 'Entrenador', 'email@example.com', DateTime(2000, 1, 1), 0, 0);
+}
+
 void main() {
-  List<String> moneda = ["cara", "sello"];
-  monedaAleatoria(moneda);
-
-  //******Jugadores objetos******* 
-  //Jugador 1: Jeferson.
-  Jugador jugador1 = Jugador("Jeferson Hernandez", "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
-  jugador1.mostrarInformacion();
-
-  //Jugador 2: Andres.
-  Jugador jugador2 = Jugador("Andres Sanchez", "andres.sanchez@gmail.com", "12-enero-1988", 200, 1);
-  jugador2.mostrarInformacion();
-
-  //******Pokemones objetos******* 
-  //Pokemon 1: Pikachu
-  Pokemon pokemon1 = Pokemon("Pikachu", "medio", "Electrico", 3.5, 100, 200, 1, 200, "Este pokemon es electrico");
-  pokemon1.mostrarInformacion();
-
-  //Pokemon 2: Bulbasaur
-  Pokemon pokemon2 = Pokemon("Bulbasaur", "medio", "Hierva", 3.5, 100, 200, 1, 200, "Este pokemon es de hierva");
-  pokemon2.mostrarInformacion();
-
-  //Pokemon 3: Charmander
-  Pokemon pokemon3 = Pokemon("Charmander", "medio", "Fuego", 3.5, 100, 200, 1, 200, "Este pokemon es de fuego");
-  pokemon3.mostrarInformacion();
+  int opcion;   //Variable para preguntar opción del menú
 
 
+
+
+
+  do {
+    print("***************************************************************************************");
+    print("Bienvenido a al viedo juego Pokemon seleccione la opcion que desea para jugar.");
+    print("1. Duelo a duelo.");
+    print("2. Torneo.");
+    print("9. Salir.");
+    opcion = int.parse(stdin.readLineSync()!);
+    List<String> entrenadores = [  // Lista de emtrenadores
+    'ANDRES FELIPE SANCHEZ HURTADO', 'ANGIE DAHIANA RIOS QUINTERO', 'CRISTIAN ALVAREZ ARANZAZU', 
+    'DANIEL ESTIVEN ARBOLEDA DUQUE', 'DAVID ANDRES MORALES GUAPACHA', 'DAVID STIVEN OCAMPO LONDOÑO', 
+    'ESTEBAN REYES AGUDELO', 'JACOBO GALVIS JIMENEZ', 'JAIME ANDRES CALLE SALAZAR', 'JEFERSON MAURICIO HERNANDEZ LADINO', 
+    'JHON ALEXANDER PINEDA OSORIO', 'JOSE MIGUEL SIERRA ARISTIZABAL', 'JOSÉ SEBASTIÁN OCAMPO LÓPEZ', 
+    'JUAN ANDRES OSORIO GOMEZ', 'JUAN DIEGO CALVO OSORIO', 'JUAN ESTEBAN LOPEZ CALLE', 
+    'JUAN PABLO RIOS ARISTIZABAL', 'MARIA PAULA MELO SOLANO', 'MIGUEL ANGEL PEÑA JIMENEZ', 
+    'SAMUEL CASTAÑO CARDONA', 'JUAN JOSÉ POSADA PÉREZ', 'ALEJANDRO SERNA LONDOÑO', 
+    'JUAN MANUEL ZULUAGA RINCON', 'JUAN DANIEL GOMEZ LASERNA', 'YERSON STIVEN HERRERA OBANDO', 
+    'MATEO HERRERA VARGAS', 'ALEJANDRO VALLEJO ESCOBAR'
+  ]; 
+
+    switch (opcion) {
+      case 1:
+        print("A seleccionado Duelo a Duelo !");
+        print("Escoja su entrenador");
+        print("1. Duelo a duelo.");
+        print("2. Torneo.");
+        print("9. Salir.");
+      break;
+      case 2:
+        print("torneo");
+      break;
+      case 9:
+        print("Hasta la proxima !");
+      break;
+    }
+  }
+  while (opcion != 9);
+
+
+
+
+}
+
+
+
+
+Entrenador buscarEntrenador() {
+  print('Ingrese el nombre del entrenador: ');
+  String? nombre = stdin.readLineSync();
+  return Entrenador(nombre ?? 'Entrenador', 'email@example.com', DateTime(2000, 1, 1), 0, 0);
+}
+
+List<Senamon> crearMundoSenamon() {
+  return [
+    Senamon(nombre: 'FuegoMon', tipoSenamon: 'Fuego', peso: 5, puntosSalud: 100, nivelAtaque: 20, fase: 'Normal', nivelEnergia: 100, descripcion: 'Descripción FuegoMon', nivel: 1),
+    Senamon(nombre: 'AguaMon', tipoSenamon: 'Agua', peso: 5, puntosSalud: 100, nivelAtaque: 20, fase: 'Normal', nivelEnergia: 100, descripcion: 'Descripción AguaMon', nivel: 1),
+    Senamon(nombre: 'HierbaMon', tipoSenamon: 'Hierba', peso: 5, puntosSalud: 100, nivelAtaque: 20, fase: 'Normal', nivelEnergia: 100, descripcion: 'Descripción HierbaMon', nivel: 1),
+    // Agregar más Senamones según sea necesario
+  ];
+}
+
+/*List<Senamon> elegirSenamones(List<Senamon> mundoSenamon) {
+  List<Senamon> equipo = [];
+  for (int i = 0; i < 5; i++) {
+    print('Seleccione un Senamon (ingrese el nombre): ');
+    String? nombre = stdin.readLineSync();
+    Senamon? seleccionado = mundoSenamon.firstWhere(
+      (senamon) => senamon.nombre == nombre,
+      orElse: () => null,
+    );
+
+    if (seleccionado != null) {
+      equipo.add(seleccionado);
+    } else {
+      print('Senamon no encontrado, por favor ingrese un nombre válido.');
+      i--;
+    }
+  }
+  return equipo;
+}*/
+List<Senamon> elegirSenamones(List<Senamon> mundoSenamon) {
+  List<Senamon> equipo = [];
+  for (int i = 0; i < 5; i++) {
+    print('Seleccione un Senamon (ingrese el nombre): ');
+    String? nombre = stdin.readLineSync();
+    
+    // Buscar el Senamon en la lista de mundoSenamon
+    Senamon? seleccionado;
+    for (var senamon in mundoSenamon) {
+      if (senamon.nombre == nombre) {
+        seleccionado = senamon;
+        break;
+      }
+    }
+
+    if (seleccionado != null) {
+      equipo.add(seleccionado);
+    } else {
+      print('Senamon no encontrado, por favor ingrese un nombre válido.');
+      i--; // Decrementa i para que vuelva a pedir otro Senamon
+    }
+  }
+  return equipo;
+}
+
+
+void entrenarSenamones(Entrenador entrenador) {
+  print('Entrenando Senamones para ${entrenador.nombre}...');
+  // Aquí iría la lógica para entrenar los Senamones de un entrenador
 }
