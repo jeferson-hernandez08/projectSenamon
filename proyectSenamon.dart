@@ -27,7 +27,7 @@ void main() {
   ]; 
 
   do {
-    print("***************************************************************************************");
+    print("*" * 60);
     print("Bienvenido a al viedo juego Pokemon seleccione la opcion que desea para jugar.");
     print("1. Duelo a duelo.");
     print("2. Torneo.");
@@ -39,7 +39,7 @@ void main() {
         
         do {
         print("A seleccionado Duelo a Duelo !");
-        print("Escoja su entrenador:");
+        print("Escoja su Jugador/Entrenador:");
         print("Los entrenadores son: ");
         for ( int i = 0; i < entrenadores.length; i++) {  //Imprimimos menu con for. 
           print("${i+1}. ${entrenadores[i]}");
