@@ -1,5 +1,7 @@
 import 'senamon.dart';
 
+//Punto 1 y 2
+//Atributos de jugador 
 class Entrenador {
   String nombre;
   String email;
@@ -8,6 +10,7 @@ class Entrenador {
   int batallasGanadas;
   List<Senamon> equipo = [];
 
+  // Constructor: Funcion que se ejecuta cuando se crea un objeto
   Entrenador(this.nombre, this.email, this.fechaNacimiento, this.nivelExperiencia, this.batallasGanadas);
 
   void mostrarInformacion() {
@@ -52,7 +55,6 @@ class Entrenador {
       print('Posición no válida.');
     }
   }
-
 
   void mostrarEquipo() {
     print('Entrenador: $nombre');

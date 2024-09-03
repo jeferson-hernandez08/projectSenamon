@@ -21,10 +21,10 @@ Entrenador crearEntrenador() {
 
 void main() {
   int opcion;   //Variable para preguntar opción del menú
-
-
-
-
+  List<String> entrenadores = [  // Lista de emtrenadores
+  'ANDRES FELIPE SANCHEZ HURTADO', 'ANGIE DAHIANA RIOS QUINTERO', 'CRISTIAN ALVAREZ ARANZAZU', 
+  'DANIEL ESTIVEN ARBOLEDA DUQUE', 'DAVID ANDRES MORALES GUAPACHA'
+  ]; 
 
   do {
     print("***************************************************************************************");
@@ -33,25 +33,37 @@ void main() {
     print("2. Torneo.");
     print("9. Salir.");
     opcion = int.parse(stdin.readLineSync()!);
-    List<String> entrenadores = [  // Lista de emtrenadores
-    'ANDRES FELIPE SANCHEZ HURTADO', 'ANGIE DAHIANA RIOS QUINTERO', 'CRISTIAN ALVAREZ ARANZAZU', 
-    'DANIEL ESTIVEN ARBOLEDA DUQUE', 'DAVID ANDRES MORALES GUAPACHA', 'DAVID STIVEN OCAMPO LONDOÑO', 
-    'ESTEBAN REYES AGUDELO', 'JACOBO GALVIS JIMENEZ', 'JAIME ANDRES CALLE SALAZAR', 'JEFERSON MAURICIO HERNANDEZ LADINO', 
-    'JHON ALEXANDER PINEDA OSORIO', 'JOSE MIGUEL SIERRA ARISTIZABAL', 'JOSÉ SEBASTIÁN OCAMPO LÓPEZ', 
-    'JUAN ANDRES OSORIO GOMEZ', 'JUAN DIEGO CALVO OSORIO', 'JUAN ESTEBAN LOPEZ CALLE', 
-    'JUAN PABLO RIOS ARISTIZABAL', 'MARIA PAULA MELO SOLANO', 'MIGUEL ANGEL PEÑA JIMENEZ', 
-    'SAMUEL CASTAÑO CARDONA', 'JUAN JOSÉ POSADA PÉREZ', 'ALEJANDRO SERNA LONDOÑO', 
-    'JUAN MANUEL ZULUAGA RINCON', 'JUAN DANIEL GOMEZ LASERNA', 'YERSON STIVEN HERRERA OBANDO', 
-    'MATEO HERRERA VARGAS', 'ALEJANDRO VALLEJO ESCOBAR'
-  ]; 
 
     switch (opcion) {
       case 1:
+        
+        do {
         print("A seleccionado Duelo a Duelo !");
-        print("Escoja su entrenador");
-        print("1. Duelo a duelo.");
-        print("2. Torneo.");
-        print("9. Salir.");
+        print("Escoja su entrenador:");
+        print("Los entrenadores son: ");
+        for ( int i = 0; i < entrenadores.length; i++) {  //Imprimimos menu con for. 
+          print("${i+1}. ${entrenadores[i]}");
+        }
+        print("9. volver atrás.");
+        opcion = int.parse(stdin.readLineSync()!);
+          switch (opcion) {
+            case 1: 
+              print("Has selecionado al entrenador:");
+              print("${entrenadores[0]}");
+            break;
+            case 2:
+            print("Has selecionado al entrenador:");
+              print("${entrenadores[1]}");
+            break;
+            case 9:
+              print("Hasta pronto");  //revisar por que no se devulve atras y finaliza
+            break;
+            default:
+              print("Error Ingrese opcion # 1 a 5 o opcion # 9 para salir.");
+            break;
+          }
+        }
+        while (opcion !=9);
       break;
       case 2:
         print("torneo");
