@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'clases/Senamon.dart';
 import 'clases/Entrenador.dart';
@@ -26,7 +27,33 @@ void main() {
     universoSenamon[i].mostrarInformacion();
   }
 
-  //***Jugadores objetos** 
+
+  //*******Crear Objetos entrenadores manualmente********
+  //Crear entrenador 1
+  String nombre1;
+  print("Cual es el nombre del entrenador 1");
+  nombre1 = stdin.readLineSync()!;
+  Entrenador entrenador1 = Entrenador(nombre1, "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
+  //Crear entrenador 1
+  String nombre2;
+  print("Cual es el nombre del entrenador 2");
+  nombre2 = stdin.readLineSync()!;
+  Entrenador entrenador2 = Entrenador(nombre2, "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
+
+  for ( var i = 0; i < 3; i++) {
+    for (int i = 0; i < universoSenamon.length; i++) {
+      print("Posicion: ${i}");
+      universoSenamon[i].mostrarInformacion();
+    }
+    print("Selecciona tu SENAMON ${i + i}");
+    int pokemon = int.parse(stdin.readLineSync()!);
+    entrenador1.agregarSenamon(universoSenamon[posSenamon]);
+  }
+  entrenador1.mostrarInformacion();
+
+
+
+  //*******Crear Objetos entrenadores predefinidos******** 
   //Jugador 1: Jeferson.
   Entrenador jugador1 = Entrenador("Jeferson Hernandez", "jefer.hernandez1@gmail.com", "15-junio-1995", 100, 2);
   jugador1.mostrarInformacion();
@@ -35,7 +62,7 @@ void main() {
   Entrenador jugador2 = Entrenador("Andres Sanchez", "andres.sanchez@gmail.com", "12-enero-1988", 200, 1);
   jugador2.mostrarInformacion();
 
-  //***Pokemones objetos** 
+  //************Pokemones objetos**************** 
   //Pokemon 1: Pikachu
   Senamon senamon1 = Senamon("Pikachu", "medio", "Electrico", 3.5, 100, 200, 1, 200, "Este pokemon es electrico");
   // senamon1.mostrarInformacion();

@@ -23,9 +23,15 @@ class Entrenador {
     return _mySenamones;
   }
 
-  void agregarSenamones() {
+  void agregarSenamon(Senamon newSenamon) {
+    _mySenamones.add(newSenamon);
+  }
 
-    
+  void mostrarSenamones() {
+    for (int i = 0; i < _mySenamones.length; i++ ) {   //Mostrar lista de senamones de Entrenador
+      print("Posición: ${i}");
+       _mySenamones[i].mostrarInformacion();
+    }
   }
 
   //Punto 3. Mejorar pokemon
