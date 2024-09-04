@@ -8,11 +8,25 @@ class Entrenador {
   String _fechaNacimiento;
   double _nivelExperiencia;
   int _batallasGanadas;
-  List<Senamon> mySenamones = [];      //Lista de senamones del jugador.
+  List<Senamon> _mySenamones = [];      //Lista de senamones del jugador.
 
 
    // Constructor: Funcion que se ejecuta cuando se crea un objeto
   Entrenador(this._nombre, this._email, this._fechaNacimiento, this._nivelExperiencia, this._batallasGanadas);
+
+  //Setters y Getters.
+  void getMySenamones(List<Senamon> senamones) {
+    _mySenamones = senamones;
+  }
+
+  List getSenamones() {
+    return _mySenamones;
+  }
+
+  void agregarSenamones() {
+
+    
+  }
 
   //Punto 3. Mejorar pokemon
   void entrenarPokemon() {

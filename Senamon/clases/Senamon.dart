@@ -6,12 +6,21 @@ class Senamon {
   double _peso;
   double _puntosSalud;
   double _nivelAtaque;
-  int _fase;
+  int _fase; 
   double _nivelEnergia;
   String _descripcion;
 
   // Constructor: Funcion que se ejecuta cuando se crea un objeto
   Senamon(this._nombre, this._nivel, this._tipoSenamon, this._peso, this._puntosSalud, this._nivelAtaque, this._fase, this._nivelEnergia, this._descripcion);
+
+  //Setters y Getters.
+  String getNombre() {
+    return _nombre;
+  }
+
+  void setNombre(String nom) {
+    _nombre = nom;
+  }
 
   void mostrarInformacion() {
     print("""

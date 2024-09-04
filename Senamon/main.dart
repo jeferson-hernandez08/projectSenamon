@@ -19,9 +19,10 @@ void main() {
   List<Senamon> universoSenamon = [
     Senamon("Pikachu", "medio", "Electrico", 3.5, 100, 200, 1, 200, "Este pokemon es electrico"),
     Senamon("Bulbasaur", "medio", "Hierva", 3.5, 100, 200, 1, 200, "Este pokemon es de hierva"),
+    Senamon("Charmander", "medio", "Fuego", 3.5, 100, 200, 1, 200, "Este pokemon es de fuego"),
   ];
 
-  for (int i = 0; i < universoSenamon.length; i++ ) {
+  for (int i = 0; i < universoSenamon.length; i++ ) {   //Mostrar lista de senamones
     universoSenamon[i].mostrarInformacion();
   }
 
@@ -37,14 +38,14 @@ void main() {
   //***Pokemones objetos** 
   //Pokemon 1: Pikachu
   Senamon senamon1 = Senamon("Pikachu", "medio", "Electrico", 3.5, 100, 200, 1, 200, "Este pokemon es electrico");
-  senamon1.mostrarInformacion();
+  // senamon1.mostrarInformacion();
 
   //Pokemon 2: Bulbasaur
   Senamon senamon2 = Senamon("Bulbasaur", "medio", "Hierva", 3.5, 100, 200, 1, 200, "Este pokemon es de hierva");
-  senamon2.mostrarInformacion();
+  // senamon2.mostrarInformacion();
 
   //Pokemon 3: Charmander
   Senamon senamon3 = Senamon("Charmander", "medio", "Fuego", 3.5, 100, 200, 1, 200, "Este pokemon es de fuego");
-  senamon3.mostrarInformacion();
+  // senamon3.mostrarInformacion();
 
 }
